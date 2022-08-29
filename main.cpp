@@ -1,4 +1,7 @@
+#include <stdlib.h>
+
 #include "Functions.h"
+
 
 int main()
 {
@@ -33,10 +36,14 @@ int main()
     printf("\n strcmp : ");
     printf("%d", my_strcmp(s,s1));
 
-    /* FILE *fp;
-    fp = fopen(test, r);
-    printf("\n fgets : print smth");
-    my_puts(my_fgets(s1, 3, fp)); */
+    FILE *fp;
+    fp = fopen("test.txt", "r");
+    printf("\n fgets : ");
+    my_puts(my_fgets(s1, 3, fp));
+
+    printf("\n strdup : ");
+    char *s2 =  strdup(s);
+    my_puts(s2);
 
 }
 

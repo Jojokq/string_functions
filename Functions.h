@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
+#include <malloc.h>
 
 int my_puts (const char *s);
 
@@ -22,5 +23,9 @@ char *my_strncat(char *s, const char *ct, size_t n);
 char my_strcmp (const char *cs, const char *ct);
 
 char *my_fgets(char *s, int n, FILE *stream);
-//fgets, strdup, getline
+
+char *my_strdup (const char *s);
+
+int getline(char *line, int max);
+
 #endif
