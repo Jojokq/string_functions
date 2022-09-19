@@ -1,10 +1,25 @@
 #ifndef FUNCTIONS
 #define FUNCTIONS
 
+#define nullptr NULL;
+
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
 #include <malloc.h>
+
+struct str
+{
+    char *s;
+};
+
+struct LINE 
+{
+    char *ptr_to_str;
+    int size;
+
+};
+
 
 int my_puts (const char *s);
 
@@ -26,6 +41,12 @@ char *my_fgets(char *s, int n, FILE *stream);
 
 char *my_strdup (const char *s);
 
-int getline(char *line, int max);
+int my_getline(char *line, int max);
 
+//int strsmp_pro(const char *cs, const char*ct);
+
+//char *copy_strs(char arr[i], const char i);
+
+
+//char *one_string_to_lot(LINE *one_line, char *ptr_to_str);
 #endif
