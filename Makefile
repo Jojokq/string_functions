@@ -1,2 +1,2 @@
 all:
-	g++ main.cpp Functions.cpp
+	gcc -g main.c  Functions.c -o Project.x -Wall -Wextra 

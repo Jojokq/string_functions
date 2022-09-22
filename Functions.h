@@ -8,18 +8,12 @@
 #include <assert.h>
 #include <malloc.h>
 
-struct str
-{
-    char *s;
-};
-
 struct LINE 
 {
-    char *ptr_to_str;
+    char *ptr;
     int size;
 
 };
-
 
 int my_puts (const char *s);
 
@@ -47,6 +41,7 @@ int my_getline(char *line, int max);
 
 //char *copy_strs(char arr[i], const char i);
 
+int count_lines (char *ptr);
 
-//char *one_string_to_lot(LINE *one_line, char *ptr_to_str);
+struct LINE *make_array(const int count, char *ptr);
 #endif

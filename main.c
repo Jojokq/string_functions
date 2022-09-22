@@ -1,4 +1,3 @@
-
 //----------------------------------------------------------------------------------------------------
 //! @brief ��������� �������
 //!
@@ -15,32 +14,38 @@ int main()
 {
     FILE *file_read = NULL;
 
-    file_read = fopen("test.txt", "r");
+    file_read = fopen("test.txt", "r"); // в функцию
     
-    int k = 0;
-
-    fseek(file_read, 0, SEEK_END);
+    fseek(file_read, 0, SEEK_END); //
     
-    k = ftell(file_read);
+    int k = ftell(file_read); //
 
-    fseek(file_read, 0, SEEK_SET);
+    fseek(file_read, 0, SEEK_SET); //
 
-    char *ptr_string = (char *) calloc (k, sizeof(char));
+    char *ptr_string = (char *) calloc (k, sizeof(char)); //
     
-    while (!feof(file_read))
+    my_fgets(ptr_string, 500, file_read); //
+
+    fclose(file_read); //
+    
+    // printf("%s\n", ptr_string); check for good
+    
+    int t = count_lines (ptr_string);
+    
+    printf("%d\n", t);
+    // till this point all works good
+    //printf("%s\n", ptr_string);
+
+    struct LINE *my_lines = make_array(t, ptr_string);
+
+    for (int i = 0; i < t; i++)
     {
-        my_fgets(ptr_string, 500, file_read);    
-    }
-    fclose(file_read);
-    //till this point all works good
-    char *p = ptr_string;
-    
-    for (; *p != '\0'; ++*p)
-    {
-        if ((*p == '\n') && (*(p + 1) == '\n'))
-            printf("|");
+        for (int j = 0; j < my_lines[i].size; j++)
+            printf("%c", my_lines[i].ptr[j]);
+        printf("\n----------------------\n");
     }
 
+    free(my_lines);
     free(ptr_string);
 }
 

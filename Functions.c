@@ -204,14 +204,15 @@ char my_strcmp (const char *cs, const char *ct)
 //----------------------------------------------------------------------------------------------------
 char *my_fgets(char *s, int n, FILE *stream)
 {
+    //printf("%s\n", s);
+
     char *ptr = s;
 
     *ptr++ = fgetc(stream);
-    do
-    {
+
+    while ((n-- > 0) && !(feof(stream))) 
         *ptr++ = fgetc(stream);
-    } while (((--n > 0) && (*ptr) ));
-    
+
     *ptr = '\0';
     
     return s;
@@ -268,6 +269,71 @@ char *copy_strs(str *old_strs[i], const char i)
 
     for (int k = 0; k < i; k++)
         new_strs =
-} */
+} 
 
+struct LINE *one_string_to_lot( char *ptr_to_str)
+{
+    while (*ptr_to_str)
+    {
+        if (*ptr_to_str == '\n')
+        {
+            struct 
+        }
+        else
+        {}
+    }
+    return 
+}*/
 
+int count_lines (char *ptr)
+{
+    int count = 0;
+    
+    char *p = ptr;
+
+    while(*p)
+    {
+        if (*p == '\n')
+        {
+            count++; 
+        }
+        p++;
+    }
+    
+    count++;
+    p = ptr;
+    printf("||||||||||||||\n%s\n||||||||||||||\n", p);
+    return count;
+}
+
+struct LINE *make_array(const int count, char *ptr)
+{
+    //printf("OK1\n");
+    struct LINE *lines = (struct LINE*) calloc(count, sizeof(struct LINE));
+    char *temp = NULL;
+    int counter = 0;
+    //printf("OK2\n");
+    temp = ptr;
+    //printf("OK3\n");
+    for (int i = 0; i < count; i++)
+    {
+        counter = 0;
+        //printf("OK11\n");
+        lines[i].ptr = temp;
+        //printf("OK12\n");
+        while((*temp != '\n') && (*temp != '\0'))
+        {
+            counter++;
+            
+            temp++;
+        }
+        
+        //printf("OK13\n");
+        lines[i].size = counter;
+        temp++;
+
+        
+    }
+    //printf("OK4\n");
+    return lines;
+}
