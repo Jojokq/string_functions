@@ -38,6 +38,8 @@ int main()
 
     struct LINE *my_lines = make_array(t, ptr_string);
 
+    printf("Normal text\n");
+
     for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < my_lines[i].size; j++)
