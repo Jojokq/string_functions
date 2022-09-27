@@ -256,53 +256,23 @@ int my_getline(char *line, int max)
         return strlen(line);
 }
 
-/* int strsmp_pro(const char *cs, const char*ct)
-{
-    while (*cs && *ct)
-        if(*cs == ' ' || *cs == ',' || *cs == '[' || *cs == ']' )
-
-}
-
-char *copy_strs(str *old_strs[i], const char i)
-{
-    str new_strs[i*2];
-
-    for (int k = 0; k < i; k++)
-        new_strs =
-} 
-
-struct LINE *one_string_to_lot( char *ptr_to_str)
-{
-    while (*ptr_to_str)
-    {
-        if (*ptr_to_str == '\n')
-        {
-            struct 
-        }
-        else
-        {}
-    }
-    return 
-}*/
-
 int count_lines (char *ptr)
 {
     int count = 0;
     
     char *p = ptr;
-
-    while(*p)
+    assert(p != NULL);
+    while(*p++)
     {
+        
         if (*p == '\n')
         {
             count++; 
         }
-        p++;
     }
     
     count++;
-    p = ptr;
-    printf("||||||||||||||\n%s\n||||||||||||||\n", p);
+
     return count;
 }
 
@@ -330,10 +300,46 @@ struct LINE *make_array(const int count, char *ptr)
         
         //printf("OK13\n");
         lines[i].size = counter;
-        temp++;
 
-        
+        temp++;  
     }
     //printf("OK4\n");
     return lines;
+}
+
+int strcmp_pro(const struct LINE line1, const struct LINE line2)
+{
+    if (line1.size > line2.size)
+            return 1;
+    else if (line2.size > line1.size)
+            return -1;
+    else
+    {
+        for (int i = 0; i < line1.size; i++)
+        {
+            if (line1.ptr[i] - line2.ptr[i] > 0)
+                    return 1;
+            else if (line2.ptr[i] - line1.ptr[i] > 0)
+                    return -1;
+        }
+        
+    }
+    return 0;
+}
+
+void bubble_sort (struct LINE *line, int line_count)
+{
+    struct LINE temp = {NULL, 0};
+    for (int i = 0; i < line_count; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (strcmp_pro(line[j], line[j + 1]) == 1)
+            {
+                temp        = line[j];
+                line[j]     = line[j + 1];
+                line[j + 1] = temp;
+            }
+        }
+    }
 }

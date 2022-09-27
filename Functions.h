@@ -37,11 +37,11 @@ char *my_strdup (const char *s);
 
 int my_getline(char *line, int max);
 
-//int strsmp_pro(const char *cs, const char*ct);
-
-//char *copy_strs(char arr[i], const char i);
+int strcmp_pro(const struct LINE line1, const struct LINE line2);
 
 int count_lines (char *ptr);
+
+void bubble_sort (struct LINE *line, int line_count);
 
 struct LINE *make_array(const int count, char *ptr);
 #endif

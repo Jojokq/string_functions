@@ -32,20 +32,34 @@ int main()
     
     int t = count_lines (ptr_string);
     
-    printf("%d\n", t);
     // till this point all works good
     //printf("%s\n", ptr_string);
 
     struct LINE *my_lines = make_array(t, ptr_string);
 
-    printf("Normal text\n");
+    //printf("Normal text\n");
 
-    for (int i = 0; i < t; i++)
+    /*for (int i = 0; i < t; i++)
     {
         for (int j = 0; j < my_lines[i].size; j++)
             printf("%c", my_lines[i].ptr[j]);
         printf("\n----------------------\n");
+    }*/
+    printf("Sorted version\n------------------------\n");
+    
+    bubble_sort(my_lines, t);
+
+    for (int i = 0; i < t; i++)
+    {  
+        for (int j = 0; j < my_lines[i].size; j++)
+            printf("%c", my_lines[i].ptr[j]);
+        printf("\n");
     }
+
+
+    printf("\n------------------------\n");
+
+    printf("\nNormal version\n------------------------\n%s\n------------------------",ptr_string);
 
     free(my_lines);
     free(ptr_string);
