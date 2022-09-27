@@ -327,14 +327,47 @@ int strcmp_pro(const struct LINE line1, const struct LINE line2)
     return 0;
 }
 
+int strcmp_reverse(const struct LINE line1, const struct LINE line2)
+{
+    if (line1.size > line2.size)
+            return 1;
+    else if (line2.size > line1.size)
+            return -1;
+    for (int i = line1.size; i > 0; --i)
+    {
+        if (line1.ptr[i] - line2.ptr[i] >0)
+            return 1;
+        else if (line2.ptr[i] - line1.ptr[i] > 0)
+            return -1;
+    }
+    return 0;
+}
+
 void bubble_sort (struct LINE *line, int line_count)
+{
+    struct LINE temp = {NULL, 0};
+    for (int i = 0; i <= line_count; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (strcmp_pro(line[j], line[j + 1]) == 1)
+            {
+                temp        = line[j];
+                line[j]     = line[j + 1];
+                line[j + 1] = temp;
+            }
+        }
+    }
+}
+
+void reversed_bubble_sort (struct LINE *line, int line_count)
 {
     struct LINE temp = {NULL, 0};
     for (int i = 0; i < line_count; i++)
     {
         for (int j = 0; j < i; j++)
         {
-            if (strcmp_pro(line[j], line[j + 1]) == 1)
+            if (strcmp_reverse(line[j], line[j + 1]) == 1)
             {
                 temp        = line[j];
                 line[j]     = line[j + 1];

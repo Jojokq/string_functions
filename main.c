@@ -59,7 +59,19 @@ int main()
 
     printf("\n------------------------\n");
 
-    printf("\nNormal version\n------------------------\n%s\n------------------------",ptr_string);
+    printf("Reversive sorted version\n------------------------\n");
+
+    reversed_bubble_sort(my_lines, t);
+
+    for (int i = 0; i < t; i++)
+    {  
+        for (int j = 0; j < my_lines[i].size; j++)
+            printf("%c", my_lines[i].ptr[j]);
+        printf("\n");
+    }
+    printf("\n------------------------\n");
+
+    printf("\nNormal version\n------------------------\n%s \n------------------------\n",ptr_string);
 
     free(my_lines);
     free(ptr_string);

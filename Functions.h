@@ -39,9 +39,13 @@ int my_getline(char *line, int max);
 
 int strcmp_pro(const struct LINE line1, const struct LINE line2);
 
+int strcmp_reverse(const struct LINE line1, const struct LINE line2);
+
 int count_lines (char *ptr);
 
 void bubble_sort (struct LINE *line, int line_count);
+
+void reversed_bubble_sort (struct LINE *line, int line_count);
 
 struct LINE *make_array(const int count, char *ptr);
 #endif
